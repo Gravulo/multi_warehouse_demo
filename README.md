@@ -47,8 +47,8 @@ dbt build --target snowflake
 
 3. **Run incremental models with time windows:**
 ```bash
-dbt run --target snowflake -s stg_orders fct_orders_daily \
-  --vars 'run_start: 2024-03-01, run_end: 2024-03-31'
+dbt run --models fct_orders_daily \ 
+--vars '{"run_start": "2024-03-01", "run_end": "2024-03-31"}'
 ```
 
 4. **Run snapshots:**
