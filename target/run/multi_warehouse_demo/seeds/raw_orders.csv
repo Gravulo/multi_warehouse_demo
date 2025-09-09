@@ -1,0 +1,12 @@
+
+    
+    
+    truncate table "DEMO"."ANALYTICS"."RAW_ORDERS";
+    -- dbt seed --
+    
+            insert into DEMO.ANALYTICS.raw_orders (order_id, user_id, order_ts, status) values
+            (%s,%s,%s,%s),(%s,%s,%s,%s),(%s,%s,%s,%s),(%s,%s,%s,%s),(%s,%s,%s,%s)
+        
+
+;
+  

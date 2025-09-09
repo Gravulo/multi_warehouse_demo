@@ -1,0 +1,12 @@
+
+    
+    
+    truncate table "DEMO"."ANALYTICS"."RAW_USERS_CHANGES";
+    -- dbt seed --
+    
+            insert into DEMO.ANALYTICS.raw_users_changes (user_id, email, country, change_ts) values
+            (%s,%s,%s,%s),(%s,%s,%s,%s),(%s,%s,%s,%s),(%s,%s,%s,%s),(%s,%s,%s,%s),(%s,%s,%s,%s),(%s,%s,%s,%s)
+        
+
+;
+  

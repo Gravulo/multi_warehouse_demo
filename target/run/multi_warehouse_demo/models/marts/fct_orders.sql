@@ -1,0 +1,19 @@
+
+  create or replace   view DEMO.ANALYTICS.fct_orders
+  
+  
+  
+  
+  as (
+    select
+  o.order_id,
+  o.user_id,
+  o.order_ts,
+  o.status,
+  sum(oi.qty * oi.unit_price) as order_amount
+from DEMO.ANALYTICS.stg_orders o
+left join DEMO.ANALYTICS.stg_order_items oi
+  on oi.order_id = o.order_id
+group by 1,2,3,4
+  );
+

@@ -1,0 +1,18 @@
+name: "multi_warehouse_demo"
+version: "1.0"
+profile: "multi_warehouse_demo"
+
+# Default configs
+models:
+  +materialized: view
+
+seeds:
+  +quote_columns: false
+
+snapshots:
+  +target_schema: "analytics_snapshots"
+
+# Vars to allow "windowed" incremental runs
+vars:
+  run_start: null
+  run_end: null

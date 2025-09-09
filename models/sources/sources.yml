@@ -1,0 +1,10 @@
+version: 2
+
+sources:
+  - name: analytics
+    description: Raw demo tables
+    tables:
+      - name: raw_users
+      - name: raw_users_changes
+      - name: raw_orders
+      - name: raw_order_items

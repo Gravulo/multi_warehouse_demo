@@ -1,0 +1,6 @@
+order_id,user_id,order_ts,status
+101,1,2024-03-05 09:10:00,completed
+102,2,2024-03-05 10:05:00,completed
+103,2,2024-03-07 16:00:00,cancelled
+104,3,2024-03-08 09:30:00,completed
+105,4,2024-03-10 14:25:00,completed

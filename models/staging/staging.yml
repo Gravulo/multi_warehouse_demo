@@ -1,0 +1,29 @@
+version: 2
+
+models:
+  - name: stg_users
+    columns:
+      - name: user_id
+        tests: [not_null, unique]
+
+  - name: stg_orders
+    columns:
+      - name: order_id
+        tests: [not_null, unique]
+      - name: user_id
+        tests: [not_null]
+      - name: status
+        tests:
+          - accepted_values:
+              values: ['completed','cancelled']
+
+  - name: stg_order_items
+    columns:
+      - name: order_id
+        tests: 
+          - not_null
+          - relationships:  # reference to orders
+              to: ref('stg_orders')
+              field: order_id
+      - name: qty
+        tests: [not_null]
