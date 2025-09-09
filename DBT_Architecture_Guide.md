@@ -940,35 +940,50 @@ DBT integrates with:
 
 ### Model Execution Results
 ```
-[PLACEHOLDER - ADD ANALYSIS OF WHAT SUCCESSFUL RUNS LOOK LIKE]
+What Successful Runs Look Like:
 
-Key metrics to monitor:
-- Execution time trends
-- Row count changes
-- Test pass/fail rates
-- Dependency resolution time
+17:23:06  1 of 25 START sql view model ANALYTICS.stg_order_items ......................... [RUN]
+17:23:07  1 of 25 OK created sql view model ANALYTICS.stg_order_items .................... [SUCCESS 1 in 0.81s]
+17:23:07  2 of 25 START sql incremental model ANALYTICS.stg_orders ....................... [RUN]
+17:23:08  2 of 25 OK created sql incremental model ANALYTICS.stg_orders .................. [SUCCESS 1 in 1.22s]
+
+Key Success Indicators:
+✅ Status: START → OK (no errors)
+✅ Materialization: Shows strategy (view/incremental/table)
+✅ Timing: Execution time per model (0.81s, 1.22s)
+✅ Impact: Row counts or objects affected (SUCCESS 1, INSERT 8)
 ```
 
 ### Test Results Analysis
 ```
-[PLACEHOLDER - ADD EXAMPLES OF TEST OUTPUTS AND THEIR MEANINGS]
+Examples of Test Outputs:
 
-Types of failures and what they indicate:
-- Uniqueness violations
-- Null value issues  
-- Referential integrity problems
-- Business logic violations
+✅ PASS Examples:
+17:23:15  9 of 25 PASS not_null_stg_order_items_order_id ................................. [PASS in 0.20s]
+17:23:16  11 of 25 PASS accepted_values_stg_orders_status__completed__cancelled .......... [PASS in 0.44s]
+
+❌ FAIL Example:
+17:23:17  14 of 25 FAIL 8 relationships_stg_order_items_qty__order_id__ref_stg_orders_ ... [FAIL 8 in 0.75s]
+(Meaning: 8 rows failed referential integrity check)
+
+⏭️ SKIP Example:
+17:23:18  18 of 25 SKIP relation ANALYTICS.fct_orders .................................... [SKIP]
+(Meaning: Dependent model skipped due to upstream failure)
 ```
 
 ### Performance Insights
 ```
-[PLACEHOLDER - ADD PERFORMANCE ANALYSIS]
+Performance Breakdown (14.99s total):
+- Models (6): ~3.5s (23% of time)
+- Seeds (4): ~5.2s (35% of time) 
+- Tests (14): ~4.8s (32% of time)
+- Snapshots (1): ~1.3s (9% of time)
 
-Optimization opportunities:
-- Long-running models
-- Models with high row counts
-- Complex dependency chains
-- Warehouse resource utilization
+Execution Efficiency:
+- Average model time: 0.58s
+- Average test time: 0.34s
+- Parallel execution: 1 thread (room for improvement)
+- Memory usage: Minimal for this dataset size
 ```
 
 ---
