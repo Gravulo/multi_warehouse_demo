@@ -1,30 +1,61 @@
 {
-    "path_count": 169,
-    "parsed_path_count": 0,
-    "static_analysis_path_count": 0,
-    "static_analysis_parsed_path_count": 0,
+    "path_count": 171,
+    "parsed_path_count": 171,
+    "static_analysis_path_count": 9,
+    "static_analysis_parsed_path_count": 7,
     "is_partial_parse_enabled": true,
     "is_static_analysis_enabled": true,
-    "read_files_elapsed": 0.014941745204851031,
-    "load_all_elapsed": 0.217490408802405,
+    "read_files_elapsed": 0.015746966004371643,
+    "load_macros_elapsed": 0.6046259549912065,
+    "parse_project_elapsed": 0.855849731946364,
+    "patch_sources_elapsed": 0.02077927498612553,
+    "process_manifest_elapsed": 0.024562773061916232,
+    "load_all_elapsed": 1.6868869999889284,
     "projects": [
         {
             "project_name": "multi_warehouse_demo",
-            "elapsed": 0,
-            "parsers": [],
-            "parsed_path_count": 0
+            "elapsed": 0.8538769920123741,
+            "parsers": [
+                {
+                    "parser": "model",
+                    "elapsed": 0.25593077507801354,
+                    "parsed_path_count": 9
+                },
+                {
+                    "parser": "snapshot",
+                    "elapsed": 0.18543586193118244,
+                    "parsed_path_count": 1
+                },
+                {
+                    "parser": "seed",
+                    "elapsed": 0.1417129000183195,
+                    "parsed_path_count": 4
+                },
+                {
+                    "parser": "test",
+                    "elapsed": 0.26949117600452155,
+                    "parsed_path_count": 3
+                }
+            ],
+            "parsed_path_count": 17
         },
         {
             "project_name": "dbt_snowflake",
-            "elapsed": 0,
+            "elapsed": 0.0008669380331411958,
             "parsers": [],
             "parsed_path_count": 0
         },
         {
             "project_name": "dbt",
-            "elapsed": 0,
-            "parsers": [],
-            "parsed_path_count": 0
+            "elapsed": 0.0009513960685580969,
+            "parsers": [
+                {
+                    "parser": "doc",
+                    "elapsed": 0.00019538903143256903,
+                    "parsed_path_count": 1
+                }
+            ],
+            "parsed_path_count": 1
         }
     ]
 }
